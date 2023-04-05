@@ -9,7 +9,6 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './UI/header/header.component';
 import { FooterComponent } from './UI/footer/footer.component';
-import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
 import { FavoriteCityComponent } from './components/favorite-city/favorite-city.component';
 import { WeatherService } from './service/weather.service';
@@ -22,7 +21,6 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     WeatherComponent,
     HeaderComponent,
     FooterComponent,
-    SearchComponent,
     HomeComponent,
     FavoriteCityComponent,
     NotFoundComponent
