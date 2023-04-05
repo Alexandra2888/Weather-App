@@ -15,7 +15,6 @@ import { FavoriteService } from './service/favorite.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { CommonModule } from '@angular/common';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { ToastrModule } from 'ngx-toastr';
 
 
@@ -28,6 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     HomeComponent,
     FavoriteCityComponent,
     NotFoundComponent,
+   
   ],
   imports: [
     BrowserModule,

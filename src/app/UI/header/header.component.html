@@ -2,5 +2,17 @@
   <div class="nav__container">
     <span class="nav__container-title" routerLink="/">Weather Forecast</span>
     <span class="nav__container-fav" routerLink="favorite">Favorite cities</span>
+    <button class="theme-toggle" (click)="toggleTheme()">
+      <ng-container *ngIf="isDarkTheme; else lightTheme">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="" d="M20.71 7.04a1 1 0 0 0-1.42 1.42l1.19 1.19h-3.12a1 1 0 0 0 0 2h3.12l-1.19 1.19a1 1 0 1 0 1.42 1.42l2.83-2.83a1 1 0 0 0 0-1.42zM12 17a5 5 0 0 1-5-5c0-1.04.31-2.03.84-2.86a1 1 0 1 0-1.68-1.08A7.02 7.02 0 0 0 5 12a7 7 0 0 0 7 7 7.02 7.02 0 0 0 4.84-1.91 1 1 0 0 0-1.08-1.68A4.97 4.97 0 0 1 12 17z"/>
+        </svg>
+      </ng-container>
+      <ng-template #lightTheme>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+          <path fill="" d="M22.45 11.34l-2.88-1.03-.45-3.1a1 1 0 0 0-1.47-.77l-3.58 1.82-1.6-2.74a1 1 0 0 0-1.71 0l-1.6 2.74-3.58-1.82a1 1 0 0 0-1.47.77l-.45 3.1-2.88 1.03a1 1 0 0 0-.56 1.7l2.19 2.13-.52 3a1 1 0 0 0 1.45 1.05l2.7-1.42 2.7 1.42a1 1 0 0 0 1.45-1.05l-.52-3 2.19-2.13a1 1 0 0 0-.56-1.7zM12 15a3 3 0 1 1 3-3 3 3 0 0 1-3 3z"/>
+        </svg>
+      </ng-template>
+    </button>
   </div>
 </nav>
