@@ -13,7 +13,7 @@
     </form>
 
   <div class="location-and-date">
-    <h1 class="location-and-date__location">{{ weatherData.name }} <button type="button" aria-label="Add to favorite"><img src="./assets/icons8-blue-heart-48.png" alt="favorite" /></button></h1>
+    <h1 class="location-and-date__location">{{ weatherData.name }} <button type="button" (click)="addToFavorites()"  aria-label="Add to favorite"><img src="./assets/icons8-blue-heart-48.png" alt="favorite" /></button></h1>
     <div>{{today | date:'fullDate'}}</div>
   </div>
 

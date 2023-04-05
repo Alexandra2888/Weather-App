@@ -11,6 +11,9 @@ import { HeaderComponent } from './UI/header/header.component';
 import { FooterComponent } from './UI/footer/footer.component';
 import { SearchComponent } from './components/search/search.component';
 import { HomeComponent } from './components/home/home.component';
+import { FavoriteCityComponent } from './components/favorite-city/favorite-city.component';
+import { WeatherService } from './service/weather.service';
+import { FavoriteService } from './service/favorite.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,8 @@ import { HomeComponent } from './components/home/home.component';
     HeaderComponent,
     FooterComponent,
     SearchComponent,
-    HomeComponent
+    HomeComponent,
+    FavoriteCityComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,7 @@ import { HomeComponent } from './components/home/home.component';
     ReactiveFormsModule,
     NgbModule
   ],
-  providers: [],
+  providers: [WeatherService, FavoriteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

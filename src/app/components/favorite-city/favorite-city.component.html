@@ -1,0 +1,16 @@
+<main class="main__container">
+  <div *ngIf="favorites.length > 0; else noFavorites">
+  <h2 class="main__container-title">Favorite cities:</h2>
+  <ul class="main__container-list">
+    <li *ngFor="let city of favorites" class="main__container-list--items">
+      {{ city }}
+      <button (click)="removeFromFavorites(city)" class="btn__remove" type="submit" aria-label="Remove favorite">Remove</button>
+    </li>
+  </ul>
+    </div>
+   <ng-template #noFavorites>
+    <p class="para">There are no favorite cities saved!</p>
+  </ng-template>
+
+  <button type="button" aria-label="Back" class="btn__back" routerLink="/">Back Home</button>
+</main>
