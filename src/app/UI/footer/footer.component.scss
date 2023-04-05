@@ -1,0 +1,13 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: inherit;
+}
+
+.footer__copyright {
+    text-align: center;
+    color: white;
+    font-size: 18px;
+}

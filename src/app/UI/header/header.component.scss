@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    flex-direction: column;
+    font-family: inherit;
+    font-size: 18px;
+
+   
+}
+
+.nav__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    height:50px;
+    padding: 2rem;
+}

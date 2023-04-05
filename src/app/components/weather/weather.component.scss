@@ -1,0 +1,138 @@
+.main-container {
+  display: flex;
+  flex-wrap: wrap;
+
+  &-form {
+    margin: 2rem 0;
+  }
+}
+
+@media screen and (min-width: 920px) {
+  .main-container {
+    width: 880px;
+    margin: 18px auto;
+    font-size: 0.7em;
+  }
+}
+
+input[type="search"] {
+  width: 10rem;
+  height: 1.5rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+button[type="submit"] {
+  display: block;
+  margin: 0 4rem;
+  box-shadow: 0px 0px 0px 2px #9fb4f2;
+  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background-color: #7892c2;
+  border-radius: 10px;
+  border: 1px solid #4e6096;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: Arial;
+  font-size: 14px;
+  padding: 2px 17px;
+  text-decoration: none;
+  text-shadow: 0px 1px 0px #283966;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+
+button[type="button"] {
+  display: inline-block;
+  background-color: inherit;
+  border: none;
+  margin: 2rem 0.5rem;
+}
+
+button[type="button"]:hover {
+  position: relative;
+  top:5px;
+}
+
+/* location-and-date */
+.location-and-date {
+  width: 100%;
+}
+
+.location-and-date__location {
+  margin: 0;
+  font-size: 3.5em;
+  font-weight: 600;
+}
+
+/* current-temperature */
+.current-temperature {
+  display: flex;
+  margin-top: 0.25em;
+  width: 100%;
+}
+
+.current-temperature__icon-container {
+  flex-grow: 1.25;
+  text-align: center;
+}
+
+.current-temperature__content-container {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.current-temperature__icon {
+  width: 10.5em;
+}
+
+.current-temperature__value {
+  font-size: 3.25em;
+  font-weight: 300;
+}
+
+.current-temperature__summary {
+  margin-top: -0.5em;
+  margin-left: -0.6em;
+  text-align: center;
+  font-size: 1.125em;
+}
+
+/* current-stats */
+.current-stats {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1em;
+  width: 100%;
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (min-width: 700px) {
+  .current-stats {
+    margin-bottom: 1em;
+    padding-bottom: 0;
+    border-top: none;
+    border-bottom: none;
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 1.6em;
+  }
+}
+
+.current-stats__value {
+  margin-top: 1em;
+  font-size: 1.44em;
+}
+
+.current-stats__label {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+@media screen and (min-width: 700px) {
+  .current-temperature,
+  .current-stats {
+    width: 50%;
+  }
+}
