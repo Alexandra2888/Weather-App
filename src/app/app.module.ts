@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { FavoriteCityComponent } from './components/favorite-city/favorite-city.component';
 import { WeatherService } from './service/weather.service';
 import { FavoriteService } from './service/favorite.service';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { FavoriteService } from './service/favorite.service';
     FooterComponent,
     SearchComponent,
     HomeComponent,
-    FavoriteCityComponent
+    FavoriteCityComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
