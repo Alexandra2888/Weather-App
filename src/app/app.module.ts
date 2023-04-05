@@ -6,7 +6,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WeatherComponent } from './components/weather/weather.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HeaderComponent } from './UI/header/header.component';
 import { FooterComponent } from './UI/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
@@ -14,6 +13,11 @@ import { FavoriteCityComponent } from './components/favorite-city/favorite-city.
 import { WeatherService } from './service/weather.service';
 import { FavoriteService } from './service/favorite.service';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { CommonModule } from '@angular/common';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { ToastrModule } from 'ngx-toastr';
+
 
 @NgModule({
   declarations: [
@@ -23,17 +27,19 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     FooterComponent,
     HomeComponent,
     FavoriteCityComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    ToastrModule.forRoot(),
   ],
   providers: [WeatherService, FavoriteService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

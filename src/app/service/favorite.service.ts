@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -6,14 +7,18 @@ import { Injectable } from '@angular/core';
 export class FavoriteService {
   private favorites: string[] = [];
 
-  constructor() {
-       this.loadFavorites();
+  constructor(private toastr: ToastrService) {
+    this.loadFavorites();
   }
 
-  
   addFavorite(city: string) {
-    this.favorites.push(city);
-    this.saveFavorites();
+    try {
+      this.favorites.push(city);
+      this.saveFavorites();
+      this.toastr.success('City added to favorites!');
+    } catch (error) {
+      this.toastr.error('Something went wrong!');
+    }
   }
 
   removeFavorite(city: string) {
@@ -21,6 +26,9 @@ export class FavoriteService {
     if (index !== -1) {
       this.favorites.splice(index, 1);
       this.saveFavorites();
+      this.toastr.success('City removed from favorites!');
+    } else {
+      this.toastr.error('Something went wrong!');
     }
   }
 
