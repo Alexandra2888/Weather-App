@@ -10,8 +10,12 @@ export class FavoriteService {
   constructor(private toastr: ToastrService) {
     this.loadFavorites();
   }
-
   addFavorite(city: string) {
+    if (this.favorites.includes(city)) {
+      this.toastr.warning('City is already at favorites!');
+      return;
+    }
+
     try {
       this.favorites.push(city);
       this.saveFavorites();

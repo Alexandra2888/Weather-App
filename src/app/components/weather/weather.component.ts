@@ -1,6 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  OnInit,
+  AfterViewInit,
+  ElementRef,
+  ViewChild,
+} from '@angular/core';
 import { WeatherService } from 'src/app/service/weather.service';
-import * as moment from 'moment';
 import { FavoriteService } from 'src/app/service/favorite.service';
 
 @Component({
@@ -13,12 +18,13 @@ export class WeatherComponent implements OnInit {
   country = '';
   weather: any;
   weatherData: any;
-  temperatureChart: any;
-  humidityChart: any;
   today: number = Date.now();
 
-  constructor(private weatherService: WeatherService,
-  private favorite: FavoriteService) { }
+
+  constructor(
+    private weatherService: WeatherService,
+    private favorite: FavoriteService
+  ) {}
 
   ngOnInit(): void {
     this.getWeather();
@@ -26,6 +32,13 @@ export class WeatherComponent implements OnInit {
 
   getWeather() {
     this.weatherService.getWeather(this.city).subscribe((data: any) => {
+      this.weatherData = data;
+    });
+  }
+
+  getWeather24h() {
+    this.weatherService.getWeather(this.city).subscribe((data: any) => {
+       console.log(data);
       this.weatherData = data;
     });
   }
@@ -47,6 +60,8 @@ export class WeatherComponent implements OnInit {
   }
 
   addToFavorites() {
-        this.favorite.addFavorite(this.weatherData.name);
+    this.favorite.addFavorite(this.weatherData.name);
   }
+
+  
 }
