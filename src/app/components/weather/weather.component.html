@@ -17,7 +17,7 @@
     </button>
   </form>
 
-  <div class="container__Location">
+  <div class="container__Location" [ngStyle]="{ 'background-image': 'url(' + currentBgImage + ')' }">
     <h1 class="container__Location-name">
       {{ weatherData?.name }}
       <button

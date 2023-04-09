@@ -6,7 +6,7 @@
   &-form {
     display: grid;
     place-items: center;
-    margin: auto;
+    margin: 1rem auto;
     width: 100%;
   }
 }
@@ -66,9 +66,14 @@ input[type="search"] {
 
 /* location-and-date */
 .container__Location {
-  width: 100%;
   display: grid;
   place-items: center;
+  margin: auto;
+  max-width: 100%;
+  padding: 1rem;
+  border-radius: 10%;
+  background-size: 100%;
+  background-repeat: no-repeat;
 
   &-name {
     font-size: 2.5rem;

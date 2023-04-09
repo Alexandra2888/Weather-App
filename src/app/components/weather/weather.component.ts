@@ -6,8 +6,6 @@ import {
 import { WeatherService } from 'src/app/service/weather.service';
 import { FavoriteService } from 'src/app/service/favorite.service';
 
-
-
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -17,7 +15,7 @@ export class WeatherComponent implements OnInit {
   city = 'Bucharest';
   weatherData: any;
   today = Date.now();
-
+  currentBgImage : any;
 
   constructor(
     private weatherService: WeatherService,
@@ -26,6 +24,13 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit(): void {
     this.getWeather();
+
+      const currentHour = new Date().getHours();
+      if (currentHour >= 6 && currentHour < 18) {
+        this.currentBgImage = './assets/white_cloud.png';
+      } else {
+        this.currentBgImage = './assets/starry_nigh.png';
+      }
   }
 
   getWeather() {
