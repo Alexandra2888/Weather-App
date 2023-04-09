@@ -1,38 +1,58 @@
 <main class="main-container">
-<form class="main-container-form">
-      <input
-        type="search"
-        placeholder="Search City"
-        [(ngModel)]="city"
-        name="city"
-        (keyup.enter)="getWeather()"
-      />
-      <button type="submit" (click)="getWeather()" aria-label="Search">
-        Search
+  <form class="main-container-form">
+    <input
+      type="search"
+      placeholder="Search City"
+      [(ngModel)]="city"
+      name="city"
+      (keyup.enter)="getWeather()"
+    />
+    <button
+      type="submit"
+      (click)="getWeather()"
+      aria-label="Search"
+      class="btn-search"
+    >
+      Search
+    </button>
+  </form>
+
+  <div class="container__Location">
+    <h1 class="container__Location-name">
+      {{ weatherData?.name }}
+      <button
+        type="button"
+        (click)="addToFavorites()"
+        class="btn-favorite"
+        aria-label="Add to favorite"
+      >
+        <img src="./assets/icons8-blue-heart-48.png" alt="favorite" />
       </button>
-    </form>
-
-  <div class="location-and-date">
-    <h1 class="location-and-date__location">{{weatherData?.name }} <button type="button" (click)="addToFavorites()"  aria-label="Add to favorite"><img src="./assets/icons8-blue-heart-48.png" alt="favorite" /></button></h1>
-    <div>{{today | date:'fullDate'}}</div>
-  </div>
-
-
-  <div class="current-temperature">
-    <div class="current-temperature__icon-container">
-      <img
-        class="main__container-weather--img"
+    </h1>
+    <img
+        class="container-temperature__weather"
         src="http://openweathermap.org/img/w/{{
           weatherData.weather[0].icon
         }}.png"
-        alt="weather"/>
-    </div>
-    <div class="current-temperature__content-container">
-      <div class="current-temperature__value">Temperature: {{ getMainTemp() }}&deg;C</div>
-      <div class="current-temperature__summary">Feels like: {{ getTempFeels() }} &deg;C</div>
-    </div>
+        alt="weather"
+      />
+    <span class="container__location-date">{{ today | date : "fullDate" }}</span>
+    <span class="container__location-date"> {{today | date : 'shortTime'}}</span>
   </div>
 
+  <div class="current-temperature">
+    <span class="current-temperature__icon-container">
+     
+    </span>
+    <div class="current-temperature__content-container">
+      <div class="current-temperature__value">
+        Temperature: {{ getMainTemp() }}&deg;C
+      </div>
+      <div class="current-temperature__summary">
+        Feels like: {{ getTempFeels() }} &deg;C
+      </div>
+    </div>
+  </div>
 
   <div class="current-stats">
     <div>
@@ -42,16 +62,15 @@
       <div class="current-stats__label">Low</div>
     </div>
     <div>
-      <div class="current-stats__value">{{ weatherData.main.pressure }} hPa</div>
+      <div class="current-stats__value">
+        {{ weatherData.main.pressure }} hPa
+      </div>
       <div class="current-stats__label">Pressure</div>
       <div class="current-stats__value">{{ weatherData.main.humidity }}%</div>
       <div class="current-stats__label">Humidity</div>
     </div>
-    <div>
+    <div></div>
   </div>
+  <div>
   </div>
-      <div>
-
-      </div>
 </main>
-

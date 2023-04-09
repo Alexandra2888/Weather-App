@@ -16,8 +16,8 @@ import { FavoriteService } from 'src/app/service/favorite.service';
 export class WeatherComponent implements OnInit {
   city = 'Bucharest';
   weatherData: any;
-  today: number = Date.now();
- 
+  today = Date.now();
+
 
   constructor(
     private weatherService: WeatherService,
