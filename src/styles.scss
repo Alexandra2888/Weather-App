@@ -1,5 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
+/*variables*/
+
+$bg-color: #ffffff;
+
+
 *,
 *::after,
 *::before {
@@ -20,10 +25,10 @@ body {
 
 .theme-light {
   background: linear-gradient(to bottom, rgb(43, 50, 178) 0%, rgb(20, 136, 204) 100%);
-  color: white;
+  color: $bg-color;
 }
 
 .theme-dark {
   background-color: black;
-  color: white;
+  color: $bg-color;
 }

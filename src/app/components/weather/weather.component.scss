@@ -1,3 +1,11 @@
+/*variables*/
+$border: 1px solid rgba(255, 255, 255, 0.5);
+$bg-color: #7892c2;
+$font-size-small:2rem;
+$font-size-medium:2.5rem;
+$width:50%;
+$text-align:center;
+
 .main-container {
   display: flex;
   flex-wrap: wrap;
@@ -21,7 +29,7 @@
 input[type="search"] {
   width: 20rem;
   height: 1.7rem;
-  text-align: center;
+  text-align: $text-align;
   margin: 1rem;
   border-radius: 1.25rem;
 
@@ -34,7 +42,7 @@ input[type="search"] {
   display: block;
   margin: 0rem;
   box-shadow: 0px 0px 0px 2px #9fb4f2;
-  background: linear-gradient(to bottom, #7892c2 5%, #476e9e 100%);
+  background: linear-gradient(to bottom, $bg-color 5%, #476e9e 100%);
   background-color: #7892c2;
   border-radius: 10px;
   border: 1px solid #4e6096;
@@ -48,8 +56,7 @@ input[type="search"] {
 }
 
 .btn-search:is(:hover :focus) {
-  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
-  background-color: #476e9e;
+  background: linear-gradient(to bottom, $bg-color 5%, #7892c2 100%);
 }
 
 .btn-favorite {
@@ -85,7 +92,7 @@ input[type="search"] {
   }
 
   &-date {
-    font-size: 2rem;
+    font-size: $font-size-small;
 
     @media screen and (min-width: 500px) {
       font-size: 3rem;
@@ -94,10 +101,10 @@ input[type="search"] {
 }
 
 .container__location-date {
-  font-size: 2rem;
+  font-size: $font-size-small;
 
   @media screen and (min-width: 500px) {
-    font-size: 2.5rem;
+    font-size: $font-size-medium;
   }
 }
 
@@ -115,7 +122,7 @@ input[type="search"] {
 
 
 &__icon-container {
-  text-align: center;
+  text-align: $text-align;
 }
 
 
@@ -126,7 +133,7 @@ input[type="search"] {
 
 
 &__value {
-  font-size: 2.5rem;
+  font-size: $font-size-medium;
   font-weight: 300;
 
   @media screen and (min-width: 600px) {
@@ -155,10 +162,10 @@ input[type="search"] {
   flex-wrap: no-wrap;
   justify-content: space-around;
   padding-bottom: 1rem;
-  width: 50%;
+  width: $width;
   margin: auto;
-  border-top: 1px solid rgba(255, 255, 255, 0.5);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: $border;
+  border-bottom: $border;
 
   @media screen and (min-width: 900px) {
     margin-bottom: 1rem;
@@ -177,7 +184,7 @@ input[type="search"] {
   @media screen and (min-width: 700px) {
     .current-temperature,
     .current-stats {
-      width: 50%;
+      width: $width;
     }
   }
 }
