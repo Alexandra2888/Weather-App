@@ -10,20 +10,13 @@
 }
 
 body {
-  margin: 8px;
   font-size: 100%;
   font-family: "Open Sans", sans-serif;
   height: 100%;
-  // background: linear-gradient(to bottom, rgb(43, 50, 178) 0%, rgb(20, 136, 204) 100%);
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 
-@media screen and (min-width: 700px) {
-  body {
-    margin: 20px;
-  }
-}
 
 .theme-light {
   background: linear-gradient(to bottom, rgb(43, 50, 178) 0%, rgb(20, 136, 204) 100%);

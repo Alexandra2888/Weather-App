@@ -23,6 +23,12 @@ input[type="search"] {
   margin: 1rem;
 }
 
+
+button[type="search"]:is(:hover :focus) {
+  background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+  background-color: #476e9e;
+}
+
 button[type="submit"] {
   display: block;
   margin: 0 6rem;
@@ -40,7 +46,9 @@ button[type="submit"] {
   text-shadow: 0px 1px 0px #283966;
 }
 
-button[type="submit"]:hover {
+
+
+button[type="submit"]:is(:hover :focus) {
   background: linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
   background-color: #476e9e;
 }
@@ -52,7 +60,7 @@ button[type="button"] {
   margin: 2rem 0.5rem;
 }
 
-button[type="button"]:hover {
+button[type="button"]:is(:hover :focus) {
   position: relative;
   top:5px;
 }
@@ -90,8 +98,12 @@ button[type="button"]:hover {
 }
 
 .current-temperature__value {
-  font-size: 3.25em;
+  font-size: 2.8em;
   font-weight: 300;
+
+  @media screen and (min-width: 600px) {
+    font-size: 3.125em;
+  }
 }
 
 .current-temperature__summary {
@@ -99,6 +111,11 @@ button[type="button"]:hover {
   margin-left: -0.6em;
   text-align: center;
   font-size: 1.125em;
+
+  @media screen and (min-width: 600px) {
+    margin-top: .5em;
+    font-size: 1.8em;
+  }
 }
 
 /* current-stats */
@@ -137,3 +154,10 @@ button[type="button"]:hover {
     width: 50%;
   }
 }
+
+
+.main__container-weather--img {
+  width:80px;
+  height:80px;
+}
+
