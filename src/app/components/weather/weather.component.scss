@@ -159,7 +159,8 @@ input[type="search"] {
 /* current-stats */
 .current-stats {
   display: flex;
-  flex-wrap: no-wrap;
+  flex-direction: row;
+//   flex-wrap: no-wrap;
   justify-content: space-around;
   padding-bottom: 1rem;
   width: $width;
@@ -186,5 +187,23 @@ input[type="search"] {
     .current-stats {
       width: $width;
     }
+  }
+}
+
+
+.next-stats {
+  display: flex;
+  flex-direction: column;
+ 
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+
+  &__icon {
+    margin: .5rem;
+  }
+
+  &__item {
+    padding: 2rem;
   }
 }

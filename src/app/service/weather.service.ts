@@ -6,6 +6,8 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class WeatherService {
+
+
   constructor(private http: HttpClient) {}
 
   getWeather(city: string): Observable<any> {
@@ -17,5 +19,9 @@ export class WeatherService {
     return `https://openweathermap.org/img/w/${icon}.png`;
   }
 
-
+  get7Days(city: string) {
+    const url = `https://api.openweathermap.org/data/2.5/forecast?q=${city}&APPID=${'27e30316642436e9116eb88d2641f4d6'}&cnt=7`;
+    return this.http.get(url);
+  }
+  
 }

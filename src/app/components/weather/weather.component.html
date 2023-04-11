@@ -5,11 +5,11 @@
       placeholder="Search City"
       [(ngModel)]="city"
       name="city"
-      (keyup.enter)="getWeather()"
     />
     <button
       type="submit"
       (click)="getWeather()"
+      (click)="get7DaysWeather()"
       aria-label="Search"
       class="btn-search"
     >
@@ -17,7 +17,7 @@
     </button>
   </form>
 
-  <div class="container__Location" [ngStyle]="{ 'background-image': 'url(' + currentBgImage + ')' }">
+  <section class="container__Location" [ngStyle]="{ 'background-image': 'url(' + currentBgImage + ')' }">
     <h1 class="container__Location-name">
       {{ weatherData?.name }}
       <button
@@ -38,9 +38,9 @@
       />
     <span class="container__location-date">{{ today | date : "fullDate" }}</span>
     <span class="container__location-date"> {{today | date : 'shortTime'}}</span>
-  </div>
+  </section>
 
-  <div class="current-temperature">
+  <section class="current-temperature">
     <span class="current-temperature__icon-container">
      
     </span>
@@ -52,9 +52,9 @@
         Feels like: {{ getTempFeels() }} &deg;C
       </div>
     </div>
-  </div>
+  </section>
 
-  <div class="current-stats">
+       <div class="current-stats">
     <div>
       <div class="current-stats__value">{{ getMaxTemp() }} &deg;C</div>
       <div class="current-stats__label">High</div>
@@ -69,8 +69,28 @@
       <div class="current-stats__value">{{ weatherData.main.humidity }}%</div>
       <div class="current-stats__label">Humidity</div>
     </div>
-    <div></div>
-  </div>
-  <div>
-  </div>
+      </div>
+
+
+
 </main>
+
+
+<div class="next-stats" *ngIf="weather">
+  <div *ngFor="let day of weather; let i = index">
+    <span class="next-stats__item">{{ dates[i] | date: 'EEE d MMM' }}</span>
+    <img class="next-stats__icon" src="http://openweathermap.org/img/w/{{ day.weather[0].icon }}.png" alt="weather" />
+    <span class="next-stats__item">
+      Min {{ (day.main.temp_min - 273.15) | number: '1.0-0' }}&deg;C
+    </span>
+    <span class="next-stats__item">
+      Max {{ (day.main.temp_max - 273.15) | number: '1.0-0' }}&deg;C
+    </span>
+    <span class="next-stats__item">
+      Pressure: {{ day.main.pressure }} hPa
+    </span>
+    <span class="next-stats__item">
+      Humidity: {{ day.main.humidity }}%
+    </span>
+  </div>
+</div>

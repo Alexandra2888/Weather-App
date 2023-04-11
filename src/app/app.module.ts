@@ -27,8 +27,7 @@ import { ToastrModule } from 'ngx-toastr';
     FooterComponent,
     HomeComponent,
     FavoriteCityComponent,
-    NotFoundComponent,
- 
+    NotFoundComponent, 
    
   ],
   imports: [
