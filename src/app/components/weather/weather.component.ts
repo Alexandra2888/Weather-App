@@ -35,7 +35,7 @@ export class WeatherComponent implements OnInit, OnDestroy {
     this.get7DaysWeather();
 
     const currentHour = new Date().getHours();
-    if (currentHour >= 6 && currentHour < 18) {
+    if (currentHour >= 6 && currentHour < 20) {
       this.currentBgImage = './assets/white_cloud.png';
     } else {
       this.currentBgImage = './assets/starry_nigh.png';
