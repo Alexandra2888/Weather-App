@@ -1,13 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { WeatherService } from 'src/app/service/weather.service';
 import { FavoriteService } from 'src/app/service/favorite.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
   styleUrls: ['./weather.component.scss'],
 })
-export class WeatherComponent implements OnInit {
+export class WeatherComponent implements OnInit, OnDestroy {
   city = 'Bucharest';
   weatherData: any;
   today = Date.now();
@@ -15,17 +16,18 @@ export class WeatherComponent implements OnInit {
   day: any;
   weather: any = [];
   dates: Date[] = [];
+  weatherToday!: Subscription;
+  weatherNext7Days!: Subscription;
 
   constructor(
     private weatherService: WeatherService,
     private favorite: FavoriteService
   ) {
-     for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 7; i++) {
       const date = new Date();
       date.setDate(date.getDate() + i);
       this.dates.push(date);
     }
-  
   }
 
   ngOnInit(): void {
@@ -41,9 +43,11 @@ export class WeatherComponent implements OnInit {
   }
 
   getWeather() {
-    this.weatherService.getWeather(this.city).subscribe((data: any) => {
-      this.weatherData = data;
-    });
+    this.weatherToday = this.weatherService
+      .getWeather(this.city)
+      .subscribe((data: any) => {
+        this.weatherData = data;
+      });
   }
 
   getMainTemp() {
@@ -67,13 +71,16 @@ export class WeatherComponent implements OnInit {
   }
 
   get7DaysWeather() {
-    this.weatherService.get7Days(this.city).subscribe((data: any) => {
+    this.weatherNext7Days = this.weatherService.get7Days(this.city).subscribe((data: any) => {
       this.weather = data.list;
-      console.log(data.list);
     });
   }
 
   resultFound() {
     return this.weather && this.weather.length > 0;
+  }
+  ngOnDestroy(): void {
+    this.weatherToday.unsubscribe();
+    this.weatherNext7Days.unsubscribe();
   }
 }
