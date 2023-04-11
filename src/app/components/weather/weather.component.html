@@ -17,7 +17,10 @@
     </button>
   </form>
 
-  <section class="container__Location" [ngStyle]="{ 'background-image': 'url(' + currentBgImage + ')' }">
+  <section
+    class="container__Location"
+    [ngStyle]="{ 'background-image': 'url(' + currentBgImage + ')' }"
+  >
     <h1 class="container__Location-name">
       {{ weatherData?.name }}
       <button
@@ -30,20 +33,22 @@
       </button>
     </h1>
     <img
-        class="container-temperature__weather"
-        src="http://openweathermap.org/img/w/{{
-          weatherData.weather[0].icon
-        }}.png"
-        alt="weather"
-      />
-    <span class="container__location-date">{{ today | date : "fullDate" }}</span>
-    <span class="container__location-date"> {{today | date : 'shortTime'}}</span>
+      class="container-temperature__weather"
+      src="http://openweathermap.org/img/w/{{
+        weatherData.weather[0].icon
+      }}.png"
+      alt="weather"
+    />
+    <span class="container__location-date">{{
+      today | date : "fullDate"
+    }}</span>
+    <span class="container__location-date">
+      {{ today | date : "shortTime" }}</span
+    >
   </section>
 
   <section class="current-temperature">
-    <span class="current-temperature__icon-container">
-     
-    </span>
+    <span class="current-temperature__icon-container"> </span>
     <div class="current-temperature__content-container">
       <div class="current-temperature__value">
         Temperature: {{ getMainTemp() }}&deg;C
@@ -54,43 +59,47 @@
     </div>
   </section>
 
-       <div class="current-stats">
+  <div class="current-stats">
     <div>
-      <div class="current-stats__value">{{ getMaxTemp() }} &deg;C</div>
-      <div class="current-stats__label">High</div>
-      <div class="current-stats__value">{{ getMinTemp() }} &deg;C</div>
-      <div class="current-stats__label">Low</div>
+      <div class="current__stats-value">{{ getMaxTemp() }} &deg;C</div>
+      <div class="current__stats-label">High</div>
+      <div class="current__stats-value">{{ getMinTemp() }} &deg;C</div>
+      <div class="current__stats=label">Low</div>
     </div>
     <div>
-      <div class="current-stats__value">
+      <div class="current__stats-value">
         {{ weatherData.main.pressure }} hPa
       </div>
-      <div class="current-stats__label">Pressure</div>
-      <div class="current-stats__value">{{ weatherData.main.humidity }}%</div>
-      <div class="current-stats__label">Humidity</div>
+      <div class="current__stats-label">Pressure</div>
+      <div class="current__stats-value">{{ weatherData.main.humidity }}%</div>
+      <div class="current__stats-label">Humidity</div>
     </div>
-      </div>
-
-
-
-</main>
-
-
-<div class="next-stats" *ngIf="weather">
-  <div *ngFor="let day of weather; let i = index">
-    <span class="next-stats__item">{{ dates[i] | date: 'EEE d MMM' }}</span>
-    <img class="next-stats__icon" src="http://openweathermap.org/img/w/{{ day.weather[0].icon }}.png" alt="weather" />
-    <span class="next-stats__item">
-      Min {{ (day.main.temp_min - 273.15) | number: '1.0-0' }}&deg;C
-    </span>
-    <span class="next-stats__item">
-      Max {{ (day.main.temp_max - 273.15) | number: '1.0-0' }}&deg;C
-    </span>
-    <span class="next-stats__item">
-      Pressure: {{ day.main.pressure }} hPa
-    </span>
-    <span class="next-stats__item">
-      Humidity: {{ day.main.humidity }}%
-    </span>
   </div>
-</div>
+
+  <div class="next__stats" *ngIf="weather">
+    <div *ngFor="let day of weather; let i = index">
+      <span class="next__stats-weather">{{ dates[i] | date : "EEE d MMM" }}</span>
+      <img
+        class="next__stats-icon"
+        src="http://openweathermap.org/img/w/{{ day.weather[0].icon }}.png"
+        alt="weather"
+      />
+      <span class="next__stats-item">
+        <span class="next__stats-item--text">Min: </span>
+        {{ day.main.temp_min - 273.15 | number : "1.0-0" }}&deg;C
+      </span>
+      <span class="next__stats-item">
+        <span class="next__stats-item--text">Max: </span>
+        {{ day.main.temp_max - 273.15 | number : "1.0-0" }}&deg;C
+      </span>
+      <span class="next__stats-item--pressure">
+        <span class="next__stats-item--pressure">Pressure: </span>
+        {{ day.main.pressure }} hPa
+      </span>
+      <span class="next__stats-item--humidity">
+        <span class="next__stats-item--humidity">Humidity: </span>
+        {{ day.main.humidity }}%
+      </span>
+    </div>
+  </div>
+</main>

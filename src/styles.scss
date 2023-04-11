@@ -11,10 +11,11 @@ $bg-color: #ffffff;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
-body {
+ body {
   font-size: 100%;
   font-family: "Open Sans", sans-serif;
   height: 100%;
